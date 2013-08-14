@@ -1,6 +1,9 @@
 package com.bigu.testing;
 
+import java.util.*;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -32,7 +35,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("fullName", "Ruby Verma" );
+		model.addAttribute("fullName", "Sumit Arora" );
 		
 		return "home";
 		
@@ -41,7 +44,41 @@ public class HomeController {
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String hello(Locale locale, Model model) {
 		logger.info("Welcome hello!");
-return "hello";
+		return "hello";
 }
+	@RequestMapping(value = "/bigu", method = RequestMethod.GET)
+	public String bigu(Locale locale, Model model) {
+		logger.info("Bigu");
+		model.addAttribute("myName", "Ruby Verma");
+		return "bigu";
+}
+	@RequestMapping(value = "/time", method = RequestMethod.GET)
+	public String time(Locale locale, Model model) {
+		logger.info("Time");
+		Date today = new Date();
+		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	    String date = DATE_FORMAT.format(today);
+		model.addAttribute("dateFormat", date);
+		return "time";
+}
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Locale locale, Model model){
+		logger.info("List");
+		ArrayList al = new ArrayList();
+		al.add("Item One");
+		al.add("Item Two");
+		al.add("Item Three");
+		al.add("Item Four");
+		al.add("Item Five");
+		Iterator itr = al.iterator();
+		while(itr.hasNext()){
+			Object element = itr.next();
+			model.addAttribute("listModel",element);
+		}
+		/*for(int i = 0; i<al.size(); i++){
+			model.addAttribute("listModel", al.get(i));
+		}*/
+		return "list";
+	}
 	
 }
