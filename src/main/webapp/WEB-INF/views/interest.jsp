@@ -1,6 +1,6 @@
 <h2>Calculate Interest</h2>
 
-<form method = "post" action = "calinterest">
+<form method = "post" action = "interest/calculate">
 <div>
 <label for = "principal">Principal:</label>
 <input type = "text" name = "principal" />

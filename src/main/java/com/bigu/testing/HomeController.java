@@ -102,58 +102,5 @@ public class HomeController {
 	  model.addAttribute("name", username );
 	  return "saveuser";
 	}
-	@RequestMapping(value = "/contact", method = RequestMethod.GET)
-	public String contact(Locale locale, Model model) {
-	  logger.info("contact page");
-	  return "contact";
+	
 	}
-	@RequestMapping(value = "/savecontact", method = RequestMethod.POST)
-	public String saveContact(HttpServletRequest request, Locale locale, Model model) {
-		  String name = "";
-		  String mail = "";
-		  try {
-			    name = ServletRequestUtils.getStringParameter(request, "name");
-			    mail = ServletRequestUtils.getStringParameter(request, "mail");
-			  } catch (ServletRequestBindingException e) {
-			    e.printStackTrace();
-			  }
-		  logger.info("save contact page {}", name);
-		  logger.info("save contact page {}",mail);
-		  model.addAttribute("name", name );
-		  model.addAttribute("mail", mail);
-		  return "savecontact";
-		}
-	@RequestMapping(value = "/interest", method = RequestMethod.GET)
-	public String interest(Locale locale, Model model) {
-	  logger.info("interest page");
-	  return "interest";
-	}
-	@RequestMapping(value = "/calinterest", method = RequestMethod.POST)
-	public String calInterest(HttpServletRequest request, Locale locale, Model model) {
-		  float principal = 0;
-		  float rate = 0;
-		  float time = 0;
-		  String type = "";
-		  try {
-			    principal = ServletRequestUtils.getFloatParameter(request, "principal");
-			    rate = ServletRequestUtils.getFloatParameter(request, "rate");
-			    time = ServletRequestUtils.getFloatParameter(request, "time");
-			    type = ServletRequestUtils.getStringParameter(request, "optionsRadios");
-			  } catch (ServletRequestBindingException e) {
-			    e.printStackTrace();
-			  }
-		  logger.info("cal interest page {}", principal);
-		  logger.info("cal interest page {}",rate);
-		  logger.info("cal interest page {}",time);
-		  logger.info("cal interest page {}",type);
-		  if("Simple".equals(type)){
-		  float si = (principal*rate*time)/100;
-		  model.addAttribute("interest",si);
-		  }
-		  else if("Compound".equals(type)){
-			  float ci = (float) (principal*(Math.pow(1+rate/100,time)));
-			  model.addAttribute("interest",ci);
-		  }
-		  return "calinterest";
-		}
-}

@@ -24,7 +24,7 @@ public class ContactsController {
 	  return "contact";
 	}
 	
-	@RequestMapping(value = "/contacts/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(HttpServletRequest request, Locale locale, Model model) {
 		  String name = "";
 		  String mail = "";
