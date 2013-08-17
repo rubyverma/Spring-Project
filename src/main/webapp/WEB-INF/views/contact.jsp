@@ -1,6 +1,6 @@
 <h2>Contact Form</h2>
 
-<form method = "post" action = "savecontact">
+<form method = "post" action = "contacts/save">
 <div>
 <label for = "Name">Name:</label>
 <input type = "text" name = "name">

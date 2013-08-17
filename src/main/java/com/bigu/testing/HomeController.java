@@ -138,7 +138,7 @@ public class HomeController {
 			    principal = ServletRequestUtils.getFloatParameter(request, "principal");
 			    rate = ServletRequestUtils.getFloatParameter(request, "rate");
 			    time = ServletRequestUtils.getFloatParameter(request, "time");
-			    type = ServletRequestUtils.getStringParameter(request, "type");
+			    type = ServletRequestUtils.getStringParameter(request, "optionsRadios");
 			  } catch (ServletRequestBindingException e) {
 			    e.printStackTrace();
 			  }
@@ -146,11 +146,11 @@ public class HomeController {
 		  logger.info("cal interest page {}",rate);
 		  logger.info("cal interest page {}",time);
 		  logger.info("cal interest page {}",type);
-		  if(type == "Simple"){
+		  if("Simple".equals(type)){
 		  float si = (principal*rate*time)/100;
 		  model.addAttribute("interest",si);
 		  }
-		  else if(type == "Compound"){
+		  else if("Compound".equals(type)){
 			  float ci = (float) (principal*(Math.pow(1+rate/100,time)));
 			  model.addAttribute("interest",ci);
 		  }
