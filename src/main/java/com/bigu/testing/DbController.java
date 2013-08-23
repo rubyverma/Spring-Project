@@ -66,7 +66,7 @@ public class DbController {
 	}
 
 	logger.debug("inside index method");
-	return "home";
+	return "test";
 	}
 
 
