@@ -37,7 +37,7 @@ public class InterestController {
 			  } catch (ServletRequestBindingException e) {
 			    e.printStackTrace();
 			  }
-		  logger.info("calcilate page {}", principal);
+		  logger.info("calculate page {}", principal);
 		  logger.info("calculate page {}",rate);
 		  logger.info("calculate page {}",time);
 		  logger.info("calculate page {}",type);
