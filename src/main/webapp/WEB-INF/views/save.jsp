@@ -1,1 +1,1 @@
-<h1>Thank you ${name} ${mail} !</h1>
+<h1>Thank you ${firstname} ${lastname} ${email} ${department} ${phone} ${fax} ${address}!</h1>
